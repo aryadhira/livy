@@ -4,6 +4,7 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
+	"log"
 	"os"
 
 	_ "github.com/lib/pq"
@@ -115,6 +116,6 @@ func (pg *PostgresWrapper) CreateTable(ctx context.Context, tablename, schema st
 		return fmt.Errorf("failed to create table: %v", err)
 	}
 
-	fmt.Printf("Table '%s' create successfully \n", tablename)
+	log.Println(fmt.Sprintf("Table '%s' create successfully \n", tablename))
 	return nil
 }
